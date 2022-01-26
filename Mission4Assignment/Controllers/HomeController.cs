@@ -27,6 +27,20 @@ namespace Mission4Assignment.Controllers
         {
             return View();
         }
+        public IActionResult Podcast()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Movies()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Movies(Movie m)
+        {
+            return View(m);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
