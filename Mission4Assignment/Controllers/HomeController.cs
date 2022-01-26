@@ -12,10 +12,12 @@ namespace Mission4Assignment.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private MovieContext _blahContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, MovieContext blah)
         {
             _logger = logger;
+            _blahContext = blah;
         }
 
         public IActionResult Index()
@@ -39,6 +41,8 @@ namespace Mission4Assignment.Controllers
         [HttpPost]
         public IActionResult Movies(Movie m)
         {
+            _blahContext.Add(m);
+            _blahContext.SaveChanges();
             return View(m);
         }
 
